@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Categoria</title>
+  <link rel="stylesheet" href="./assets/css/lojinha.css" />
+</head>
+<!-- Modal do Carrinho -->
+<div id="cartModal">
+    <div class="cart-content">
+      <button id="closeModal">Fechar</button>
+      <h2>Seu Carrinho</h2>
+      <div id="cartModalBody"></div>
+      <p><strong>Total:</strong> R$ <span id="totalAmount">0.00</span></p>
+      <button id="clearCartBtn" style="margin-top: 10px; background-color: #ff4d6d;">🗑️ Limpar Carrinho</button>
+<audio id="trashSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_efe6b41952.mp3?filename=trash-empty-2-112125.mp3"></audio>
+      <button onclick="window.location.href='checkout.html'">Ir para Pagamento</button>
+    </div>
+  </div>
+  
+<body>
+      <header class="header">
+        <h1 class="logo" onclick="window.location.href='index.html'" style="cursor:pointer;">Pixel Peach❤️</h1>
+        <div class="search-container">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search" placeholder="Buscar roupas..." />
+        </div>
+        <button id="cartBtn">🛒 Meu Carrinho</button>
+        <button onclick="window.location.href='index.html'">🏠 Voltar às Promoções</button>
+        <button id="checkoutBtn">💳 Pagar</button>
+      </header>
+            
+  <h2 id="categoryTitle" style="text-align:center; margin: 20px 0;"></h2>
+
+  <main class="products" id="productList">
+    <!-- Produtos da categoria aparecem aqui -->
+  </main>
+
+  <script src="./assets/js/lojinha.js"></script>
+  <script>
+    // Pegar a categoria da URL
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get("cat");
+
+    document.getElementById("categoryTitle").innerText = `Categoria: ${category.charAt(0).toUpperCase() + category.slice(1)}`;
+
+    const filtered = products.filter(p => p.category === category);
+    renderProducts(filtered);
+
+  </script>
+</body>
+</html>

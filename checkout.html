@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finalizar Compra</title>
+  <link rel="stylesheet" href="./assets/css/checkout.css" />
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Finalizar Compra</h1>
+
+    <p><strong>Total a pagar:</strong> R$ <span id="checkoutTotal">0.00</span></p>
+
+    <form id="checkoutForm">
+      <label>Nome Completo:</label>
+      <input type="text" id="name" required />
+      <label>CPF:</label>
+      <input type="text" id="cpf" required />
+      <label>Data de Nascimento:</label>
+      <input type="date" id="dob" required />
+      <label>Endereço:</label>
+      <input type="text" id="address" required />
+      <label>Cidade:</label>
+      <input type="text" id="city" required />
+      <label>Estado:</label>
+      <input type="text" id="state" required />
+      <label>CEP:</label>
+      <input type="text" id="zip" required />
+
+      <label>Forma de Pagamento:</label>
+      <select id="paymentMethod" required>
+        <option value="pix">Pix</option>
+      </select>
+      <button type="submit">Finalizar Compra</button>
+    </form>
+
+    <div id="pixQrCodeContainer" style="margin-top: 30px;">
+      <canvas id="qrcode"></canvas>
+    </div>
+  </div>
+
+  <script src="./assets/js/checkout.js"></script>
+</body>
+</html>
