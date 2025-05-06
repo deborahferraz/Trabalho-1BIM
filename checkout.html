@@ -13,7 +13,7 @@
 
     <p><strong>Total a pagar:</strong> R$ <span id="checkoutTotal">0.00</span></p>
 
-    <form id="checkoutForm">
+    <form id="checkoutForm" onsubmit="return validateForm()">
       <label>Nome Completo:</label>
       <input type="text" id="name" required />
       <label>CPF:</label>
@@ -42,5 +42,26 @@
   </div>
 
   <script src="./assets/js/checkout.js"></script>
+
+  <script>
+    function validateForm() {
+      const cpf = document.getElementById('cpf').value;
+      const zip = document.getElementById('zip').value;
+
+      // Verifica se o CPF tem apenas números
+      if (!/^\d{11}$/.test(cpf)) {
+        alert('Por favor, insira um CPF válido com 11 dígitos numéricos.');
+        return false;
+      }
+
+      // Verifica se o CEP tem apenas números
+      if (!/^\d{8}$/.test(zip)) {
+        alert('Por favor, insira um CEP válido com 8 dígitos numéricos.');
+        return false;
+      }
+
+      return true;
+    }
+  </script>
 </body>
 </html>
